@@ -6,6 +6,13 @@ const { hash, compare } = bcrypt;
 
 
 const userSchema = new Schema({
+    username:{
+        type: String,
+        unique: true,
+        required: true,
+        minLength: [2, 'Your username must be at least 2 character in length']
+    },
+
     email: {
         type: String,
         // The unique rule only works when the collection is first created
@@ -16,12 +23,13 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
+        required: true,
         // Ensure the string is at least 6 chars long
         minLength: [6, 'Your password must be at least 6 characters in length']
     },
-    notes:[{
+    pets:[{
         type: Schema.Types.ObjectId,
-        ref: 'Note'
+        ref: 'Pet'
     }]
 
 }, {
