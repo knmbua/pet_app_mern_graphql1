@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import dotenv from 'dotenv';
 const { verify } = jwt;
+
+dotenv.config();
 
 interface AuthenticatedRequest extends Request {
   user?: any;
