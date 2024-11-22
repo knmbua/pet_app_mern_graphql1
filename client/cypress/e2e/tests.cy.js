@@ -113,7 +113,4 @@ describe('Site Tests', () => {
       cy.get('main').contains(postTitle);
 
   });
-
- 
-
 });
