@@ -18,8 +18,10 @@ pet:{
     required: [true, 'You must attach the pet_id to the post'],
     ref: 'Pet'
 }
-
+}, {collection: 'pet_app_posts'
+    
 });
+
 
 const Post = model('Post', PostSchema);
 export default Post;
