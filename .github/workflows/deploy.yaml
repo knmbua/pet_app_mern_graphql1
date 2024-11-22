@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      JWT: ${{ secrets.JWT_SECRET }}
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -19,7 +23,7 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: npm run install
+      run: npm install
 
     - name: Run tests
       run: npm test
